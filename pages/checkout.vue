@@ -140,7 +140,6 @@ export default {
       let cartItems = this.cartItems();
       for(let cartItemKey in cartItems) {
         let cartItem = cartItems[cartItemKey];
-        //console.log(JSON.stringify(cartItem))
 
         let item = {};
         item.name = cartItem.productName;
@@ -155,7 +154,6 @@ export default {
         paypalOrder.items.push(item);
       }
 
-      //paypalOrder.reference_id = "gu91gh9gag098";
       paypalOrder.amount.value = totalCost.toString();
       paypalOrder.amount.currency_code = "USD";
       paypalOrder.amount.breakdown = {};
@@ -211,10 +209,8 @@ export default {
   //
   async mounted() {
     let parent = this;
-    //console.log(JSON.stringify(parent.cartToPaypal()))
-    //console.log({"intent": "CAPTURE", "purchase_units": parent.cartToPaypal()})
     const paypalSdk = await loadScript({
-      'client-id': 'AS2hjAnHfUyVIKTpLfrpFPW_ahfGRdZqY6Li3UcYL5EPPZDE2yo5XpIxPugobevoUzO3ZHCzbZp3wKDK',
+      'client-id': 'INSERT_PAYPAL_CLIENT_ID_HERE',
       currency: 'USD',
     });
     await paypalSdk.Buttons({

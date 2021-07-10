@@ -31,9 +31,7 @@ export default {
       let index = 0;
       for (let key in myCart) {
         let cartItem = myCart[key];
-        //console.log("Evaluating " + cartItem.productId);
         if (cartItem.productId === this.productId  && cartItem.variant === this.variant  && cartItem.price === this.price){
-          //console.log(cartItem.productId + " vs " + this.productId);
           myCart.splice(index, 1);
           break;
         }
